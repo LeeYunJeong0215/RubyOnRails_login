@@ -23,10 +23,29 @@
     </style>
 </head>
 <body>
+  <!-- 상태메시지 부분 -->
+  <% if flash[:notice] %>
+  <div class="alert alert-primary" role="alert">
+    <%= flash[:notice] %>
+  </div>
+  <!-- else를 쓰면 nil상태일때도 포함하므로 elsif를 써야 함. -->
+  <% elsif flash[:alert] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
   <div class="container" style="padding-top: 50px">
+
     <div class="text-right">
+      <!-- 로그인이 된 상태에서만 코드가 보이도록 unless사용 -->
+      <% unless current_user.nil? %>
+        <%= current_user.name %>
+        <a href="/user/logout">로그아웃</a>
+      <% else %>
       <a href="/user/new"> 회원가입하기</a>
       <a href="/user/login">로그인</a>
+      <% end %>
     </div>
     <%= yield %>
   </div>
