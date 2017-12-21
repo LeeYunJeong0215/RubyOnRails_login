@@ -1,0 +1,33 @@
+<h2>게시판입니다.</h2>
+<p><a class="btn btn-primary" role="button" href="/post/new">글쓰기</a></p>
+<hr />
+<!-- bootstrap 코드 링크
+https://getbootstrap.com/docs/4.0/content/tables/#examples -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">작성자</th>
+      <th scope="col">제목</th>
+      <th scope="col">내용</th>
+      <th scope="col">작성시간</th>
+      <th scope="col">보기</th>
+      <th scope="col">삭제</th>
+      <th scope="col">수정</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+    <tr>
+      <th scope="row"><%= post.id %></th>
+      <td><%= post.username %></td>
+      <td><%= post.title %></td>
+      <td><%= post.content[0,10] %></td>
+      <td><%= post.created_at %></td>
+      <td><a href="/post/show/<%= post.id %>">보기</a></td>
+      <td><a data-confirm="정말 지울거니.." data-method="delete" href="/post/destroy/<%= post.id %>">삭제</a></td>
+      <td><a href="/post/edit/<%= post.id %>">수정</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

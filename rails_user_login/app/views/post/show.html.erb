@@ -1,0 +1,20 @@
+<h2>게시글</h2>
+<p><%= @post.id %></p>
+<p><%= @post.username %></p>
+<p><%= @post.title %></p>
+<p><%= @post.content %></p>
+<p><%= @post.created_at %></p>
+
+<hr />
+<h4 class="fonthead"> Write </h4>
+
+<form action="/post/add_comment" id="form_comment"><i class="fas fa-comment"></i>
+  <input type="text" name="content" placeholder="댓글을 입력해주세요."/>
+  <input type="hidden" name="id" value="<%= @post.id %>">
+  <input type="submit" />
+</form>
+
+<hr />
+<% @post.comments.reverse.each_with_index do |comment, i| %>
+  <%= @post.comments.length - i %>번째 댓글 : <p><%= comment.content %></p>
+<% end %>

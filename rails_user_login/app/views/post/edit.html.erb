@@ -1,0 +1,17 @@
+<h2> 게시글 수정하세요! </h2>
+<form action="/post/update/<%= @post.id %>" method="post">
+  <div class="form-group">
+    <label>작성자</label>
+    <input value="<%=@post.username%>" name="username" type="text" class="form-control" placeholder="이름이뭐야?">
+  </div>
+  <div class="form-group">
+    <label>제목</label>
+    <input value="<%=@post.title%>" name="title" type="text" class="form-control" placeholder="제목!!!">
+  </div>
+  <div class="form-group">
+    <label>내용</label>
+    <textarea name="content" class="form-control" rows="3"><%=@post.content%></textarea>
+  </div>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <button type="submit" class="btn btn-primary">얍!</button>
+</form>
