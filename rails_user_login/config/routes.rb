@@ -15,6 +15,14 @@ Rails.application.routes.draw do
 
   get 'post/add_comment' => 'post#add_comment'
 
+  get 'user/index'
+  get 'user/new'
+  post 'user/create'
+
+
+  get 'user/login'
+  post 'user/login_process'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

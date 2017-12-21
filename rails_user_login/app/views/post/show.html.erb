@@ -6,9 +6,9 @@
 <p><%= @post.created_at %></p>
 
 <hr />
-<h4 class="fonthead"> Write </h4>
+<h4 class="fonthead"> Write <i class="fas fa-comment"></i></h4>
 
-<form action="/post/add_comment" id="form_comment"><i class="fas fa-comment"></i>
+<form action="/post/add_comment" id="form_comment">
   <input type="text" name="content" placeholder="댓글을 입력해주세요."/>
   <input type="hidden" name="id" value="<%= @post.id %>">
   <input type="submit" />
